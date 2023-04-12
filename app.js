@@ -1,9 +1,12 @@
 const http = require("http");
+const express = require("express");
 
-const server = http.createServer((req, res) => {
-  res.write("Hello world");
-  res.end();
+const app = express();
+app.get("/", (req, res) => {
+  res.send("Hello World");
 });
+
+const server = http.createServer(app);
 
 server.listen(3_000, () => {
   console.log("Server is listening.");
