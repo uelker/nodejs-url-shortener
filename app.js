@@ -1,13 +1,13 @@
-const http = require("http");
-const express = require("express");
+'use strict';
 
-const app = express();
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+const http = require('http');
+const getApp = require('./lib/getApp');
 
+
+const port = process.env.PORT || 3_000;
+const app   = getApp();
 const server = http.createServer(app);
 
-server.listen(3_000, () => {
-  console.log("Server is listening.");
+server.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
