@@ -14,7 +14,7 @@ database.initialize(connectionString, (err) => {
         process.exit(1);
     }
 
-    const app   = getApp();
+    const app   = getApp(database);
     const server = http.createServer(app);
 
     server.listen(port, () => {
